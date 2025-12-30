@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BlockDrip | Kaspa Clothing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>BLOCKDRIP</h1>
+  <p>Powered by Kaspa ⚡</p>
+</header>
+
+<section class="products">
+
+  <div class="product">
+    <h2>T-Shirt</h2>
+    <p>$25</p>
+    <button onclick="addToCart('T-Shirt', 25)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <h2>Hoodie</h2>
+    <p>$50 (2 for $40 each)</p>
+    <button onclick="addToCart('Hoodie', 50)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <h2>Cap</h2>
+    <p>$20</p>
+    <button onclick="addToCart('Cap', 20)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <h2>Shorts</h2>
+    <p>$25</p>
+    <button onclick="addToCart('Shorts', 25)">Add to Cart</button>
+  </div>
+
+</section>
+
+<section class="cart">
+  <h2>Your Cart</h2>
+  <ul id="cartItems"></ul>
+  <p id="total"></p>
+
+  <div id="payment">
+    <h3>Pay with Kaspa</h3>
+    <p id="kaspaAmount"></p>
+
+    <img id="qr" />
+
+    <p class="address">
+      kaspa:qypyhf2u59cwc9tufx0w9elmfkfpump8ftdy2rch864qaek2k0rpgaq5r42krz7
+    </p>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+
