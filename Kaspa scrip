@@ -1,0 +1,38 @@
+const wallet = "kaspa:qypyhf2u59cwc9tufx0w9elmfkfpump8ftdy2rch864qaek2k0rpgaq5r42krz7";
+let cart = [];
+
+function addToCart(item, price) {
+  cart.push({ item, price });
+  renderCart();
+}
+
+function renderCart() {
+  const list = document.getElementById("cartItems");
+  list.innerHTML = "";
+
+  let total = 0;
+  let hoodieCount = cart.filter(i => i.item === "Hoodie").length;
+
+  cart.forEach(i => {
+    let price = i.price;
+
+    if (i.item === "Hoodie" && hoodieCount >= 2) {
+      price = 40;
+    }
+
+    total += price;
+
+    const li = document.createElement("li");
+    li.textContent = `${i.item} - $${price}`;
+    list.appendChild(li);
+  });
+
+  document.getElementById("total").textContent = `Total: $${total}`;
+
+  const kaspaAmount = (total / 0.1).toFixed(2); // Example conversion
+  document.getElementById("kaspaAmount").innerText =
+    `Send ≈ ${kaspaAmount} KAS`;
+
+  document.getElementById("qr").src =
+    `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${wallet}?amount=${kaspaAmount}`;
+}
